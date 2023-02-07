@@ -21,6 +21,7 @@ model Pokemon {
   defense     Int
   speed       Int
   weight      Int
+  height      Int
   url         String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

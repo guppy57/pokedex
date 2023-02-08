@@ -10,6 +10,7 @@
     "setup-db": "tsc ./db/setup.ts && node ./db/setup.js"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.15",
     "@next/font": "13.1.6",
     "@prisma/client": "4.9.0",
     "@types/node": "18.11.19",

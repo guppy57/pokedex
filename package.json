@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup-db": "tsc ./db/setup.ts && node ./db/setup.js"
   },
   "dependencies": {
     "@next/font": "13.1.6",

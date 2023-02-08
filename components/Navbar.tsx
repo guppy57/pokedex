@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRightIcon } from '@heroicons/react/20/solid'
 
 export default function NavbarComponent(): JSX.Element {
   return (

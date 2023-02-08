@@ -3,6 +3,9 @@
 # enviroment variables
 .env
 
+# compiled typescript for setup-db
+/db/setup.js
+
 # dependencies
 /node_modules
 /.pnp

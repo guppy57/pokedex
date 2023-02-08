@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
 import NavbarComponent from '../../components/Navbar';
+import Splash from '../../components/Splash';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,6 +19,7 @@ export default function Home(): JSX.Element {
       </Head>
       <main>
         <NavbarComponent />
+        <Splash />
       </main>
     </div>
   )

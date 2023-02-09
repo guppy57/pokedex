@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "_id": "96004cdb-2fad-4d44-af96-ee6d18c726ef",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/api/pokemon?limit=20&offset=0",
+    "url": "localhost:3000/api/pokemon?limit=20&offset=0",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-09T06:19:59.756Z",
+    "modified": "2023-02-09T06:19:59.756Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "limit",
+        "value": "20",
+        "isPath": false
+      },
+      {
+        "name": "offset",
+        "value": "0",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  }
+]

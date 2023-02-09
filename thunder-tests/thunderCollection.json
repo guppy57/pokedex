@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "_id": "6df76369-cf4d-4fd5-83d6-9cde89b8c9a2",
+    "colName": "Pokedex",
+    "created": "2023-02-09T06:20:17.981Z",
+    "sortNum": 10000,
+    "folders": []
+  }
+]

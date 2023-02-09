@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
   return (
     <div>
       <Head>
-        <title>Armaan's Pokedex</title>
+        <title>Armaan&apos;s Pokedex</title>
         <meta name="description" content="A rip-off pokedex for fun." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

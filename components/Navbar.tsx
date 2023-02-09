@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NavbarComponent(): JSX.Element {
   return (
@@ -7,9 +8,11 @@ export default function NavbarComponent(): JSX.Element {
         <div className="flex w-full items-center justify-between py-6">
           <div className="flex items-center">
             <Link href="/">
-              <span className="sr-only">Armaan's Pokedex</span>
-              <img
+              <span className="sr-only">Armaan&apos;s Pokedex</span>
+              <Image
                 className="sm:h-10 w-auto h-8"
+                width={300}
+                height={300}
                 src="/Pokedex.png"
                 alt=""
               />
@@ -28,6 +31,9 @@ export default function NavbarComponent(): JSX.Element {
             >
               Get support
             </Link>
+            <span>
+              Collection
+            </span>
           </div>
         </div>
       </nav>

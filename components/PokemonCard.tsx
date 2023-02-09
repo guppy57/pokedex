@@ -1,5 +1,6 @@
 import { Pokemon } from "@prisma/client";
 import { EnvelopeIcon } from "@heroicons/react/20/solid";
+import Image from "next/image";
 
 const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
   pokemon,
@@ -15,11 +16,13 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
             {pokemon.type}
           </span>
         </div>
-        <img
-          className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
-          src={pokemon.artwork}
-          alt=""
-        />
+        <Image
+            className="mx-auto h-44 w-44 flex-shrink-0 rounded-full"
+            height={200}
+            width={200}
+            src={pokemon.artwork}
+            alt=""
+          />
         <h3 className="mt-6 text-2xl font-medium text-gray-900">
           {pokemon.name}
         </h3>
@@ -27,18 +30,21 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
           {pokemon.speciesName}
         </p>
       </div>
-      <div id="stats" className="grid grid-cols-1 gap-3 md:grid-cols-2 border-t-2">
-          <div className="md:border-r-2 py-3">
-            <p>HP: {pokemon.hp}</p>
-            <p>Speed: {pokemon.speed}</p>
-            <p>Weight: {pokemon.weight}</p>
-          </div>
-          <div className="py-3">
-            <p>Attack: {pokemon.attack}</p>
-            <p>Defense: {pokemon.defense}</p>
-            <p>Height: {pokemon.height}</p>
-          </div>
+      <div
+        id="stats"
+        className="grid grid-cols-1 gap-3 md:grid-cols-2 border-t-2"
+      >
+        <div className="md:border-r-2 py-3">
+          <p>HP: {pokemon.hp}</p>
+          <p>Speed: {pokemon.speed}</p>
+          <p>Weight: {pokemon.weight}</p>
         </div>
+        <div className="py-3">
+          <p>Attack: {pokemon.attack}</p>
+          <p>Defense: {pokemon.defense}</p>
+          <p>Height: {pokemon.height}</p>
+        </div>
+      </div>
       <div className="border-t-2 border-gray-20 hover:bg-gray-100">
         <button className="w-full py-4 text-gray-400">
           Collect {pokemon.name}

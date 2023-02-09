@@ -81,7 +81,7 @@ export default function PokemonList(): JSX.Element {
         className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
       >
         {pokemonList.map((pokemon) => (
-          <PokemonCard pokemon={pokemon} />
+          <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </ul>
     </div>

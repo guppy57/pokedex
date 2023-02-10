@@ -10,4 +10,4 @@ Rip off pokedex, because why not?
 
 ## Notes
 
-Currently, we only have 1269/1279 records in the database. The most likely reason is API rate limiting which is the reason we couldn't get the last 10.
+Currently, we only have 1271/1279 records in the database. The most likely reason is API rate limiting which is the reason we couldn't get the last 8.

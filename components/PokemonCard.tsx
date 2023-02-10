@@ -1,10 +1,14 @@
 import { Pokemon } from "@prisma/client";
-import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
+
+import PokemonTypeLabel from "./PokemonTypeLabel";
 
 const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
   pokemon,
 }): JSX.Element => {
+  console.log(pokemon); 
+  const type: string = pokemon.type;
+
   return (
     <li
       key={pokemon.id}
@@ -12,9 +16,7 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
     >
       <div className="flex flex-1 flex-col p-3">
         <div className="flex justify-end">
-          <span className="rounded-full bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800">
-            {pokemon.type}
-          </span>
+          <PokemonTypeLabel type={type} />
         </div>
         <Image
             className="mx-auto h-44 w-44 flex-shrink-0 rounded-full"

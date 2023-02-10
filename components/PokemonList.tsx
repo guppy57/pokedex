@@ -1,89 +1,84 @@
 import { Pokemon } from "@prisma/client";
 import PokemonCard from "./PokemonCard";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
-// This is just a mock array of Pokemon objects. In the future, this will be replaced with a call to the API.
-const pokemonList: Pokemon[] = [
-  {
-    id: 1,
-    name: "Bulbasaur",
-    speciesName: "Seed",
-    type: "Grass",
-    speed: 45,
-    height: 7,
-    weight: 69,
-    attack: 49,
-    defense: 49,
-    hp: 45,
-    artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    url: "https://pokeapi.co/api/v2/pokemon/1/",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: 2,
-    name: "Ivysaur",
-    speciesName: "Seed",
-    type: "Grass",
-    speed: 60,
-    height: 10,
-    weight: 130,
-    attack: 62,
-    defense: 63,
-    hp: 60,
-    artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
-    url: "https://pokeapi.co/api/v2/pokemon/2/",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: 3,
-    name: "Venusaur",
-    speciesName: "Seed",
-    type: "Grass",
-    speed: 80,
-    height: 20,
-    weight: 1000,
-    attack: 82,
-    defense: 83,
-    hp: 80,
-    artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
-    url: "https://pokeapi.co/api/v2/pokemon/3/",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: 4,
-    name: "Charmander",
-    speciesName: "Lizard",
-    type: "Fire",
-    speed: 65,
-    height: 6,
-    weight: 85,
-    attack: 52,
-    defense: 43,
-    hp: 39,
-    artwork:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
-    url: "https://pokeapi.co/api/v2/pokemon/4/",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-];
+interface IAPIResponse {
+  statusCode: string;
+  message: string;
+  data: Pokemon[];
+}
 
 export default function PokemonList(): JSX.Element {
+  const queryClient = useQueryClient();
+  const limit: number = 15;
+
+  const fetchPokemon = async (page: number) => {
+    const res = await fetch(`/api/pokemon?limit=${limit}&page=${page}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    const data = await res.json();
+    return data.data;
+  };
+
+  const {
+    data,
+    isSuccess,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+  } = useInfiniteQuery({
+    queryKey: ["pokemon"],
+    queryFn: ({ pageParam = 1 }) => fetchPokemon(pageParam),
+    getNextPageParam: (lastPage, pages) => {
+      console.log(pages);
+      const maxPages: number = Math.ceil(lastPage.totalCount / limit);
+
+      if (pages.length < maxPages) return pages.length + 1;
+      else return undefined;
+    },
+  });
+
+  useEffect(() => {
+    let fetching = false;
+    const onScroll = async (event: any) => {
+      const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement;
+
+      if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.2) {
+        fetching = true;
+        if (hasNextPage || true) await fetchNextPage();
+        fetching = false;
+      }
+    };
+
+    document.addEventListener("scroll", onScroll);
+    return () => document.removeEventListener("scroll", onScroll);
+  }, [fetchNextPage, hasNextPage]);
+
   return (
     <div>
       <ul
         role="list"
         className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
       >
-        {pokemonList.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+        {isSuccess && data?.pages.map((page: any) => (
+          page.pokemon.map((pokemon: Pokemon) => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          ))
         ))}
       </ul>
+      <div>
+          {isFetchingNextPage && <p className="text-center py-4">Fetching more pokemon...</p>}
+        </div>
+        <div>
+          {isLoading && <p className="text-center py-4">Loading pokemon...</p>}
+        </div>
     </div>
   );
 }

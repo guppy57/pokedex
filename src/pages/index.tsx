@@ -6,8 +6,6 @@ import Splash from '../../components/Splash';
 import PokemonList from '../../components/PokemonList';
 import QueryDescriptor from '../../components/QueryDescriptor';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export default function Home(): JSX.Element {
   return (
     <div>
@@ -18,7 +16,9 @@ export default function Home(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <NavbarComponent />
+        <div className="sticky top-0 bg-white bg-opacity-80 backdrop-blur-md z-10">
+          <NavbarComponent />
+        </div>
         <Splash />
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-12">
           <QueryDescriptor />

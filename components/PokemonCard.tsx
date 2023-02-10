@@ -1,13 +1,21 @@
 import { Pokemon } from "@prisma/client";
 import Image from "next/image";
+import { useAtom } from "jotai";
 
 import PokemonTypeLabel from "./PokemonTypeLabel";
+import collectedPokemonAtom from "../stores/collectedPokemon";
 
 const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
   pokemon,
 }): JSX.Element => {
-  console.log(pokemon); 
+  const [collection, setCollection] = useAtom(collectedPokemonAtom);
   const type: string = pokemon.type;
+
+  const collectPokemon = (event: any): void => {
+    event.preventDefault();
+    if (collection.includes(pokemon)) return;
+    else setCollection([...collection, pokemon]);
+  };
 
   return (
     <li
@@ -48,7 +56,10 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
         </div>
       </div>
       <div className="border-t-2 border-gray-20 hover:bg-gray-100">
-        <button className="w-full py-4 text-gray-400">
+        <button 
+          className="w-full py-4 text-gray-400"
+          onClick={(e) => collectPokemon(e)}
+        >
           Collect {pokemon.name}
         </button>
       </div>

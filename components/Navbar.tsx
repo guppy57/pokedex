@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useAtom } from "jotai";
+
+import collectedPokemonAtom from "../stores/collectedPokemon";
 
 export default function NavbarComponent(): JSX.Element {
+  const [collection] = useAtom(collectedPokemonAtom);
+
   return (
     <header>
       <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
@@ -20,10 +25,10 @@ export default function NavbarComponent(): JSX.Element {
           </div>
           <div className="ml-10 space-x-8">
             <Link
-              href={"/contact-us"}
+              href={"mailto:armaan@guppy.im"}
               className="inline-block py-2 text-base font-regular text-gray-900"
             >
-              Contact us
+              Contact Armaan
             </Link>
             <Link
               href={"https://support.kreativeusa.com/hyperlink"}
@@ -31,9 +36,15 @@ export default function NavbarComponent(): JSX.Element {
             >
               Get support
             </Link>
-            <span>
-              Collection
-            </span>
+            <Link
+              href="/collection"
+              className="inline-block py-2 text-base font-regular text-gray-900"
+            >
+              My Collection{" "}
+              <span className="bg-red-600 text-white py-1 px-2 rounded-xl">
+                {collection.length}
+              </span>
+            </Link>
           </div>
         </div>
       </nav>

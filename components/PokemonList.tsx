@@ -1,6 +1,6 @@
 import { Pokemon } from "@prisma/client";
 import PokemonCard from "./PokemonCard";
-import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 interface IAPIResponse {
@@ -10,7 +10,6 @@ interface IAPIResponse {
 }
 
 export default function PokemonList(): JSX.Element {
-  const queryClient = useQueryClient();
   const limit: number = 15;
 
   const fetchPokemon = async (page: number) => {
@@ -37,9 +36,7 @@ export default function PokemonList(): JSX.Element {
     queryKey: ["pokemon"],
     queryFn: ({ pageParam = 1 }) => fetchPokemon(pageParam),
     getNextPageParam: (lastPage, pages) => {
-      console.log(pages);
       const maxPages: number = Math.ceil(lastPage.totalCount / limit);
-
       if (pages.length < maxPages) return pages.length + 1;
       else return undefined;
     },

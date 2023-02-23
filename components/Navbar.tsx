@@ -31,8 +31,9 @@ export default function NavbarComponent(): JSX.Element {
               Contact Armaan
             </Link>
             <Link
-              href={"https://support.kreativeusa.com/hyperlink"}
+              href={"https://support.kreativeusa.com/submit-issue"}
               className="inline-block py-2 text-base font-regular text-gray-900"
+              target={"_blank"}
             >
               Get support
             </Link>

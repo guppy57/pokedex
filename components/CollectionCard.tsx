@@ -43,9 +43,9 @@ const CollectionCard: React.FC<{ pokemon: Pokemon }> = ({
       </div>
       <div
         id="stats"
-        className="grid grid-cols-1 gap-3 md:grid-cols-2 border-t-2"
+        className="grid grid-cols-2 md:gap-3 border-t-2"
       >
-        <div className="md:border-r-2 py-3">
+        <div className="border-r-2 py-3">
           <p>HP: {pokemon.hp}</p>
           <p>Speed: {pokemon.speed}</p>
           <p>Weight: {pokemon.weight}</p>

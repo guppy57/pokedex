@@ -11,16 +11,16 @@ export default function Splash(): JSX.Element {
             <Image 
               src="/pokeball.png"
               alt="pokeball"
-              className="pb-6"
-              width={75}
-              height={75}
+              className="w-auto pb-6 md:h-24 h-20"
+              width={100}
+              height={100}
             />
             </div>
           <h1 className="text-black text-center font-bold lg:text-7xl md:text-7xl text-4xl w-full">
             Find every Pokemon, ever.
           </h1>
           <div className="flex items-center justify-center">
-            <p className="my-10 text-lg leading-8 text-gray-600 text-center lg:px-18 sm:px-0 w-8/12">
+            <p className="my-10 text-lg leading-8 text-gray-600 text-center lg:px-18 sm:px-0 lg:w-8/12 w-full">
               Search the (rip-off) pokedex for any Pokemon from any game. Then,
               view stats like height, weight, type, and more! Why did I make
               this? Just for fun to be honest.

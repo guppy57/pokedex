@@ -3,12 +3,6 @@ import PokemonCard from "./PokemonCard";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 
-interface IAPIResponse {
-  statusCode: string;
-  message: string;
-  data: Pokemon[];
-}
-
 export default function PokemonList(): JSX.Element {
   const limit: number = 15;
 

@@ -5,16 +5,17 @@ import { useAtom } from "jotai";
 import PokemonTypeLabel from "./PokemonTypeLabel";
 import collectedPokemonAtom from "../stores/collectedPokemon";
 
-const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
+const CollectionCard: React.FC<{ pokemon: Pokemon }> = ({
   pokemon,
 }): JSX.Element => {
   const [collection, setCollection] = useAtom(collectedPokemonAtom);
   const type: string = pokemon.type;
 
-  const collectPokemon = (event: any): void => {
+  const removePokemon = (event: any): void => {
     event.preventDefault();
-    if (collection.includes(pokemon)) return;
-    else setCollection([...collection, pokemon]);
+    if (collection.includes(pokemon)) {
+      setCollection(collection.filter((p) => p.id !== pokemon.id));
+    }
   };
 
   return (
@@ -55,16 +56,16 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
           <p>Height: {pokemon.height}</p>
         </div>
       </div>
-      <div className="border-t-2 border-gray-20 rounded-b-md hover:bg-gray-100">
+      <div className="border-t-2 rounded-b-md border-red-600 bg-red-600 hover:bg-red-500">
         <button 
-          className="w-full py-4 text-gray-400"
-          onClick={(e) => collectPokemon(e)}
+          className="w-full py-4 text-white"
+          onClick={(e) => removePokemon(e)}
         >
-          Collect {pokemon.name}
+          Remove {pokemon.name}
         </button>
       </div>
     </li>
   );
 };
 
-export default PokemonCard;
+export default CollectionCard;

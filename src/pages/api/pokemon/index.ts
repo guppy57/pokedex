@@ -1,18 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Pokemon, PrismaClient } from "@prisma/client";
+import IData from "../../../../types/IData";
+import IResponse from "../../../../types/IResponse";
 
 const prisma = new PrismaClient();
-
-type IData = {
-  pokemon: Pokemon[];
-  totalCount: number;
-};
-
-type IResponse = {
-  statusCode: number;
-  message: string;
-  data?: IData;
-};
 
 export default async function handler(
   req: NextApiRequest,

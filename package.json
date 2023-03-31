@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "setup-db": "tsc ./db/setup.ts && node ./db/setup.js",
-    "postbuild": "node ./scripts/build-search.js"
+    "build-search": "doppler run -- node ./scripts/build-search.js",
+    "postbuild": "yarn build-search"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.11",
@@ -22,11 +23,12 @@
     "@types/react-dom": "18.0.10",
     "algoliasearch": "^4.16.0",
     "autoprefixer": "^10.4.13",
-    "axios": "^1.3.2",
+    "axios": "^1.3.4",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "jotai": "^2.0.0",
     "next": "13.1.6",
+    "nextjs-cors": "^2.1.2",
     "postcss": "^8.4.21",
     "prisma": "^4.9.0",
     "react": "18.2.0",

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Pokemon, PrismaClient } from "@prisma/client";
+import NextCors from "nextjs-cors";
 import IJSONData from "../../../../types/IJSONData";
 import IResponse from "types/IResponse";
 
@@ -9,6 +10,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<IJSONData | IResponse>
 ) {
+
+  await NextCors(req, res, {
+    methods: ["GET"],
+    origin: "*",
+    optionsSuccessStatus: 200
+  });
+
   let pokemon: IJSONData = [];
 
   if (req.method !== "GET") {

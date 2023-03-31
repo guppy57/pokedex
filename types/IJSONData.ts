@@ -1,2 +1,3 @@
-import { Pokemon } from "@prisma/client";
+type IJSONData = { id: number, name: string }[];
 
+export default IJSONData;

@@ -1,8 +1,7 @@
-import { useState } from "react";
 import Image from "next/image";
+import SearchBar from "./SearchBar";
 
 export default function Splash(): JSX.Element {
-
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Top">
       <div id="splash-section" className="sm:pt-12 sm:pb-12 pt-6 pb-6">
@@ -26,6 +25,7 @@ export default function Splash(): JSX.Element {
               this? Just for fun to be honest.
             </p>
           </div>
+          <SearchBar />
         </div>
       </div>
     </div>

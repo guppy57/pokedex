@@ -1,6 +1,8 @@
 import { Pokemon } from "@prisma/client";
 import Image from "next/image";
+import React from "react";
 import { useAtom } from "jotai";
+import { toast } from "react-toastify";
 
 import PokemonTypeLabel from "./PokemonTypeLabel";
 import collectedPokemonAtom from "../stores/collectedPokemon";
@@ -14,6 +16,7 @@ const CollectionCard: React.FC<{ pokemon: Pokemon }> = ({
   const removePokemon = (event: any): void => {
     event.preventDefault();
     if (collection.includes(pokemon)) {
+			toast.success(`${pokemon.name} was removed from your collection!`, { autoClose: 1500, position: "bottom-right" });
       setCollection(collection.filter((p) => p.id !== pokemon.id));
     }
   };

@@ -1,6 +1,7 @@
 import { Pokemon } from "@prisma/client";
 import Image from "next/image";
 import { useAtom } from "jotai";
+import { toast } from "react-toastify";
 
 import PokemonTypeLabel from "./PokemonTypeLabel";
 import collectedPokemonAtom from "../stores/collectedPokemon";
@@ -13,8 +14,14 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
 
   const collectPokemon = (event: any): void => {
     event.preventDefault();
-    if (collection.includes(pokemon)) return;
-    else setCollection([...collection, pokemon]);
+    if (collection.includes(pokemon)) {
+			toast.warning(`${pokemon.name} is already in your collection!`, { autoClose: 1500, position: "bottom-right" });
+			return;
+		}
+    else {
+			toast.success(`${pokemon.name} was added to your collection!`, { autoClose: 1500, position: "bottom-right" });
+			setCollection([...collection, pokemon]);
+		}
   };
 
   return (

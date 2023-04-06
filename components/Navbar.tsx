@@ -7,7 +7,7 @@ import { ArrowRightIcon, XMarkIcon, Bars3Icon } from "@heroicons/react/24/outlin
 
 import collectedPokemonAtom from "../stores/collectedPokemon";
 
-export default function NavbarComponent(): JSX.Element {
+export default function Navbar(): JSX.Element {
   const [collection] = useAtom(collectedPokemonAtom);
 
   return (

@@ -6,7 +6,7 @@ export default function SearchBar(): JSX.Element {
   const router = useRouter();
 
   // search query submission function
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e: any) => {
     e.preventDefault();
     const encodedQuery = encodeURIComponent(query);
     router.push(`/search?q=${encodedQuery}`);

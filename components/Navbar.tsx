@@ -31,7 +31,7 @@ export default function Navbar(): JSX.Element {
           </div>
           <div className="ml-10 space-x-8">
             <Link
-              href={"mailto:armaan@guppy.im"}
+              href={"mailto:armaan@kreativeusa.com"}
               className="inline-block py-2 text-base font-regular text-gray-900"
             >
               Contact Armaan
@@ -48,7 +48,7 @@ export default function Navbar(): JSX.Element {
               className="inline-block py-2 text-base font-regular text-gray-900"
             >
               My Collection{" "}
-              <span className="bg-red-600 text-white py-1 px-2 rounded-xl">
+              <span className="bg-red-600 text-white py-1.5 px-2.5 rounded-full">
                 {collection.length}
               </span>
             </Link>
@@ -79,13 +79,13 @@ export default function Navbar(): JSX.Element {
               </div>
               <Popover.Group as="nav" className="hidden space-x-10 tablet:flex">
           <Link
-            href="/contact-us"
+            href={"mailto:armaan@kreativeusa.com"}
             className="text-base font-medium text-gray-500 hover:text-gray-900"
           >
-            Contact us
+            Contact Armaan
           </Link>
           <a
-            href="https://support.kreativeusa.com/hyperlink"
+            href="https://support.kreativeusa.com/submit-issue"
             className="text-base font-medium text-gray-500 hover:text-gray-900"
             target={"_blank"}
             rel={"noreferrer"}
@@ -93,24 +93,6 @@ export default function Navbar(): JSX.Element {
             Get Support
           </a>
         </Popover.Group>
-        <div className="hidden items-center justify-end tablet:flex tablet:flex-1 lg:w-0">
-          <Link
-            href="#"
-            className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-          >
-            Sign up
-          </Link>
-          <Link
-            href="/dashboard"
-            className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-hyper-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-hyper-blue-secondary"
-          >
-            Dashboard
-            <ArrowRightIcon
-              className="ml-2 -mr-0.5 h-6 w-6"
-              aria-hidden="true"
-            />
-          </Link>
-        </div>
       </div>
 
       <Transition
@@ -149,8 +131,8 @@ export default function Navbar(): JSX.Element {
                 </div>
               </div>
             </div>
-            <div className="py-6 px-5">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="py-3 px-5">
+              <div className="grid grid-cols-1 gap-4">
                 <Link
                   href="/"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
@@ -158,22 +140,10 @@ export default function Navbar(): JSX.Element {
                   Home
                 </Link>
                 <Link
-                  href="/#features"
+                  href={"mailto:armaan@kreativeusa.com"}
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  Features
-                </Link>
-                <Link
-                  href="/#faqs"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  FAQs
-                </Link>
-                <Link
-                  href="/contact-us"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Contact us
+                  Contact Armaan
                 </Link>
                 <a
                   href="https://support.kreativeusa.com/hyperlink"
@@ -184,26 +154,16 @@ export default function Navbar(): JSX.Element {
                   Get support
                 </a>
               </div>
-              <div className="mt-6">
-                <Link
-                  href="/dashboard"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-hyper-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-hyper-blue-secondary"
-                >
-                  Dashboard
-                  <ArrowRightIcon
-                    className="ml-2 -mr-0.5 h-6 w-6"
-                    aria-hidden="true"
-                  />
-                </Link>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  New to Hyperlink?{" "}
-                  <Link
-                    href="#"
-                    className="text-hyper-blue-secondary hover:text-hyper-blue-primary"
-                  >
-                    Sign up
-                  </Link>
-                </p>
+              <div className="mt-6 border-t border-t-gray-200 text-center">
+								<Link
+										href="/collection"
+										className="inline-block py-2 text-base font-regular text-gray-900 mt-3"
+								>
+									My Collection{" "}
+									<span className="bg-red-600 text-white py-1.5 px-2.5 rounded-full">
+										{collection.length}
+									</span>
+								</Link>
               </div>
             </div>
           </div>

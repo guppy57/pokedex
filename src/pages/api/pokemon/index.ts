@@ -10,7 +10,7 @@ export default async function handler(
   res: NextApiResponse<IResponse>
 ) {
   if (req.method !== "GET") {
-    res.status(404).json({ statusCode: 404, message: "Not Found" });
+    res.status(404).json({ statusCode: 404, message: "Method not found" });
   }
   const limit = req.query.limit ? parseInt(req.query.limit as string) : 20;
   const page = req.query.page ? parseInt(req.query.page as string) : 1;

@@ -15,8 +15,8 @@ export default function SearchResults(props: any) {
 	return (
 		<div>
 			<Head>
-				<title>{`Search Results | Armaan&apos;s Pokedex`}</title>
-				<meta name="description" content={`Search Results | Armaan&apos;s Pokedex`} />
+				<title>{`Search Results | Armaan's Pokedex`}</title>
+				<meta name="description" content={`Search Results | Armaan's Pokedex`} />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>

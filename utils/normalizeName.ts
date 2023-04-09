@@ -1,5 +1,3 @@
-import React from "react";
-
 const normalizeName = (name: string): string => {
 	const nameArray = name.split("-");
 	const nameArrayNormalized = nameArray.map((name) => {

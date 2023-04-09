@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import SearchSplash from "../../components/SearchSplash";
-import CollectedPokemonList from "../../components/CollectedPokemonList";
 import PokemonCard from "../../components/PokemonCard";
 import {Pokemon} from "@prisma/client";
 

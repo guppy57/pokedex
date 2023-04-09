@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import PokemonTypeLabel from "./PokemonTypeLabel";
 import collectedPokemonAtom from "../stores/collectedPokemon";
+import normalizeName from "../utils/normalizeName";
 
 const CollectionCard: React.FC<{ pokemon: Pokemon }> = ({
   pokemon,
@@ -38,7 +39,7 @@ const CollectionCard: React.FC<{ pokemon: Pokemon }> = ({
             alt=""
           />
         <h3 className="mt-6 text-2xl font-medium text-gray-900">
-          {pokemon.name}
+          {normalizeName(pokemon.name)}
         </h3>
         <p className="text-sm text-gray-500 text-center pb-3">
           {pokemon.speciesName}
@@ -64,7 +65,7 @@ const CollectionCard: React.FC<{ pokemon: Pokemon }> = ({
           className="w-full py-4 text-white"
           onClick={(e) => removePokemon(e)}
         >
-          Remove {pokemon.name}
+          Remove {normalizeName(pokemon.name)}
         </button>
       </div>
     </li>

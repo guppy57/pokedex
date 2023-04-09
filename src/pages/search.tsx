@@ -43,7 +43,7 @@ export async function getServerSideProps(context: any) {
 	const response = await fetch(
 			process.env.NEXT_PUBLIC_ENVIRONMENT === "development"
 					? `http://localhost:3000/api/pokemon/search?q=${q}`
-					: "https://pokedex.kreativeusa.com/api/pokemon/search?q=${q}"
+					: `https://pokedex.kreativeusa.com/api/pokemon/search?q=${q}`
 	);
 
 	const payload = await response.json();

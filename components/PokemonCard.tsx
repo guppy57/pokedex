@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 import PokemonTypeLabel from "./PokemonTypeLabel";
 import collectedPokemonAtom from "../stores/collectedPokemon";
-import normalizeName from "../utils/normalizeName";
+import normalizeName from "../lib/normalizeName";
 
 const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({
   pokemon,
